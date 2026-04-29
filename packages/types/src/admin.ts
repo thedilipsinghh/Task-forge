@@ -35,7 +35,7 @@ export type REGISTER_EMPLOYEE_REQUEST = {
     name: string
     email: string
     mobile: string
-    profile: FileList | undefined
+    profile?: FileList
     department: string
     jobRole: string
     doj: Date

@@ -64,7 +64,7 @@ export default function EmployeeDashboard() {
         name: z.string().min(2),
         email: z.string().email(),
         mobile: z.string(),
-        profile: z.instanceof(FileList),
+        profile: z.any(),
         department: z.string(),
         jobRole: z.string(),
         doj: z.coerce.date(),
