@@ -13,13 +13,13 @@ export const login = async (req: Request<{}, {}, LOGIN_REQUEST>, res: Response<L
         const { email, password } = req.body
         const [result] = await db.select().from(user).where(eq(user.email, email))
         if (!result) {
-            return res.status(401).json({ message: "invalid credentials" })
+            return res.status(401).json({ message: "invalid credentials email" })
         }
 
         const verify = await bcryptjs.compare(password, result.password)
 
         if (!verify) {
-            return res.status(401).json({ message: "invalid credentials" })
+            return res.status(401).json({ message: "invalid credentials password" })
         }
 
         if (!result.isActive) {
